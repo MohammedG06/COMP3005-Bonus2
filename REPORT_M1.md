@@ -1,7 +1,7 @@
 # REPORT_M1.md: measurements
 
 > The tables below were produced by running the scripts in `scripts/` Machine: Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7. Page, hit and comparison counters are deterministic and matched on Linux (Python 3.14.6).
-Machine / Python: `Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7`
+> Machine / Python: `Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7`
 
 ## 1. Capacity: computed by hand vs measured
 
