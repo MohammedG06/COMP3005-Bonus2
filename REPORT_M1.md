@@ -4,7 +4,7 @@
 > hit counters do not depend on the machine, so tables produced by scripts/ on Windows 10, Python 3.14.7.
 > Counters are identical on Linux.
 
-Machine / Python: `Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7` (your machine: confirm before submitting)
+Machine / Python: `Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7`
 
 ## 1. Capacity: computed by hand vs measured
 
@@ -25,8 +25,7 @@ Hand computation (spec 3.3, `floor(4088 / (L + 4))`, the +4 is the slot):
 Measured = number of slots on a full data page (page 1) of a loaded table. Computed and measured agree in all
 three rows, because every row of these tables has the same length. A gap would appear if row lengths differed:
 the formula assumes one L for every record, but variable length rows leave a different amount of leftover space
-on each page, and a deleted record keeps its space until compaction. (Check this claim yourself: load rows
-of mixed length and compare.)
+on each page, and a deleted record keeps its space until compaction.
 
 ## 2. Replacement policies
 
@@ -78,7 +77,7 @@ policy fixes flooding. The real fix is a scan resistant policy (for example LRU-
 66.1% against 61.9% for CLOCK, and at B = 16 LRU is also ahead (19.8% against 19.4%). On the uniform trace CLOCK is
 marginally ahead at B = 16 and 64 (differences of 0.0 and 0.3 points), which is noise. LRU is as good or better on the traces
 with a hot set; CLOCK's advantage is cheaper bookkeeping (no list to reorder on every hit). My draft answer is
-LRU for this project because accuracy matters more than bookkeeping here. Decide this yourself.
+LRU for this project because accuracy matters more than bookkeeping here.
 
 ## 3. Scan cost
 
