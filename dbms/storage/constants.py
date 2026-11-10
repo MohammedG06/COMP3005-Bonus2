@@ -1,0 +1,9 @@
+PAGE_SIZE = 4096
+PAGE_HEADER = 8            # page_id u32, slot_count u16, free_end u16
+SLOT_SIZE = 4              # offset u16, length u16
+NO_PAGE = 0xFFFFFFFF
+DIR_HEADER = 10            # page_id u32, next_dir_page u32, entry_count u16
+DIR_ENTRY = 6              # data_page_id u32, free_bytes u16
+DIR_CAPACITY = (PAGE_SIZE - DIR_HEADER) // DIR_ENTRY      # 681
+MAX_RECORD = PAGE_SIZE - PAGE_HEADER - SLOT_SIZE          # 4084: biggest record that fits an empty page
+NO_SPACE = -1
