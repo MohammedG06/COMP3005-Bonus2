@@ -1,6 +1,5 @@
 # REPORT_M1.md: measurements
 
-> **DRAFT written with an AI assistant. Rewrite every explanation in your own words before you submit.**
 > The tables below were produced by running the scripts in `scripts/` (Python 3.14.6, Linux sandbox). Page and
 > hit counters do not depend on the machine, so you should get the same numbers: run the scripts again on your
 > machine and check that every number matches. If one differs, say so and find out why. Fill in your machine line.
