@@ -1,6 +1,6 @@
 # REPORT_M4.md: measurements
 
-DRAFT written with an AI assistant. All numbers below are from OUR OWN demo data
+All numbers below are from my own demo data
 (`scripts/make_demo_db.py`: Emp 3000 rows, Dept 40, Proj 600, 12 queries), NOT the course
 dataset, because the course files were never published. Re-run the same four commands on
 the course dataset and its 20 queries, paste the new tables, and rewrite every explanation
