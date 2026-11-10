@@ -1,6 +1,5 @@
 # REPORT_M2.md: measurements
 
-> **DRAFT written with an AI assistant. Rewrite every explanation in your own words before you submit.**
 > Tables come from `python scripts/m2_measure.py all` (Python 3.14.6, Linux sandbox). Page counts and comparison
 > counts are deterministic, so they should be identical on your machine: run it again and compare every row.
 > Relations are 20 to 80 pages with 150 character padding so one page holds about 24 tuples.
