@@ -2,7 +2,7 @@
 
 > Tables were produced by python scripts/m2_measure.py all. Machine: Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7. Page and comparison counts are deterministic and matched on Linux (Python 3.14.6).
 
-Machine / Python: `Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7` (confirm before submitting)
+Machine / Python: `Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7`
 
 ## 1. Join cost against the textbook formulas
 
