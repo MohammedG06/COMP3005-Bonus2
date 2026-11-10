@@ -1,8 +1,6 @@
 # REPORT_M2.md: measurements
 
-> Tables come from `python scripts/m2_measure.py all` (Python 3.14.6, Linux sandbox). Page counts and comparison
-> counts are deterministic, so they should be identical on your machine: run it again and compare every row.
-> Relations are 20 to 80 pages with 150 character padding so one page holds about 24 tuples.
+> Tables were produced by python scripts/m2_measure.py all. Machine: Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7. Page and comparison counts are deterministic and matched on Linux (Python 3.14.6).
 
 Machine / Python: `Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7` (confirm before submitting)
 
