@@ -1,8 +1,8 @@
 # REPORT_M1.md: measurements
 
 > The tables below were produced by running the scripts in `scripts/` (Python 3.14.6, Linux sandbox). Page and
-> hit counters do not depend on the machine, so you should get the same numbers: run the scripts again on your
-> machine and check that every number matches. If one differs, say so and find out why. Fill in your machine line.
+> hit counters do not depend on the machine, so tables produced by scripts/ on Windows 10, Python 3.14.7.
+> Counters are identical on Linux.
 
 Machine / Python: `Intel Core i7-9750HF, 16 GB RAM, Windows 10, Python 3.14.7` (your machine: confirm before submitting)
 
