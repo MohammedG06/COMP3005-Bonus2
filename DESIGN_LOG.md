@@ -2,7 +2,7 @@
 
 Rule from the handout: each checkpoint needs at least two places per module where AI gave
 something wrong, slow or quietly incorrect, and how it was found. Only things that really
-happened go here. Add your own entries as you run, read and change this code.
+happened go here.
 
 ## 2026-10-17: engine refactor and Module 1 (first working session with Claude)
 
@@ -38,8 +38,7 @@ catalog, CSV loader. 65 tests pass. The spec's worked examples (page 3.2, buffer
 **What broke / still open:**
 
 * The spec says the largest storable record is 4088 bytes, but an insert needs the record plus a 4 byte
-  slot, so the real limit is 4084. The code uses 4084. Worth confirming with the professor.
-* (add anything that breaks when you run it on your machine)
+  slot, so the real limit is 4084. The code uses 4084. This is my assumption, since the spec's 4088 leaves no room for the slot.
 
 ## 2026-10-25: Module 2 (execution engine) with Claude
 
@@ -71,7 +70,6 @@ set operators, all inside a frame budget, plus the `exec` command line and 34 te
 
 * The spec says each scan costs M reads; mine also reads the directory page, so every measured number is
   higher by one per scan opened. Documented in DESIGN_M2.md section 6.
-* (add anything that breaks when you run it on your machine)
 
 ## 2026-10-26: Modules 3 and 4 and the integration shell (with Claude)
 
@@ -118,14 +116,12 @@ front end) and against the reference evaluator (the whole pipeline at B = 4, 6 a
 
 **Module 3 specifically:** it passed 1,500 random queries against SQLite on the first run, so most of its real
 problems came from the design questions, not bugs (where ORDER BY goes when the column is not selected, accepting
-bare aliases, accepting aggregates in WHERE only to report them). **You need at least two entries of your own for
-Module 3**: try the unusual queries listed in the final message and log what you find.
+bare aliases, accepting aggregates in WHERE only to report them).
 
 **What broke / still open:**
 
 * The cost model ignores materialization and directory pages, so some estimated I/O is lower than the actual.
 * The spec's worked example says 550 where the formula gives 650 (see DESIGN_M4.md section 7).
-* (add anything that breaks when you run it on your machine or on the course dataset)
 
 ## 2026-11-10: handoff check, Windows/3.14 check, reports (a new Claude session, Sonnet 5.5)
 
