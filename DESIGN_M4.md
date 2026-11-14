@@ -1,5 +1,7 @@
 # DESIGN_M4.md: query optimizer
 
+Assumption: the course dataset and its 20 queries were not provided, so REPORT_M4 uses my own generated data (`scripts/make_demo_db.py`: Emp 3000 rows, Dept 40, Proj 600, with a correlated city and zip pair) and my own 20 queries from the same script.
+
 Code: `dbms/optimizer/` (`stats.py`, `estimate.py`, `rewrite.py`, `planner.py`, `api.py`, `cli.py`).
 
 ## 1. Statistics (`ANALYZE`)

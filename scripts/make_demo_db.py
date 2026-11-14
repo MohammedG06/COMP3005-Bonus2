@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Builds a demo database with realistic skew and one strongly correlated pair of columns, plus a file
-of 12 queries. For trying the whole system before the course dataset is published.
+of 20 queries. For trying the whole system before the course dataset is published.
 
   python scripts/make_demo_db.py --out demo_db [--scale 1]
   python shell.py --db demo_db
@@ -28,6 +28,14 @@ SELECT d.title, COUNT(*) AS n FROM Dept d, Emp e, Proj p WHERE e.did = d.did AND
 SELECT name FROM Emp WHERE age > 55 UNION SELECT pname FROM Proj WHERE budget > 900;
 SELECT t.did, t.n FROM (SELECT did, COUNT(*) AS n FROM Emp GROUP BY did) AS t WHERE t.n > 50;
 SELECT e.name, m.name FROM Emp e JOIN Emp m ON e.mgr = m.eid WHERE m.age > 58;
+SELECT COUNT(*) FROM Emp WHERE age >= 30 AND age <= 40;
+SELECT e.name, p.pname FROM Emp e, Proj p WHERE e.did = p.did AND e.city = 'Ottawa' AND e.zip = 'K1A';
+SELECT p.pname, d.title FROM Proj p JOIN Dept d ON p.did = d.did WHERE p.budget > 800;
+SELECT city, COUNT(*) AS n FROM Emp GROUP BY city;
+SELECT e.name, p.pname FROM Emp e JOIN Dept d ON e.did = d.did JOIN Proj p ON p.did = d.did WHERE e.age > 60 AND p.budget > 900;
+SELECT MIN(sal), MAX(sal), AVG(age) FROM Emp WHERE did < 10;
+SELECT did FROM Emp WHERE age > 50 INTERSECT SELECT did FROM Proj WHERE budget > 900;
+SELECT title FROM Dept WHERE budget > 1000 EXCEPT SELECT d.title FROM Dept d, Proj p WHERE p.did = d.did AND p.budget > 950;
 """
 
 
