@@ -6,7 +6,4 @@ mydb/
 demo_db/
 uni_db/
 *.tmp
-demo/ 
-__pycache__/ 
-*.pyc 
 demo/
