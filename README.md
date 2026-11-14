@@ -6,11 +6,11 @@ Pure Python 3 (standard library only). Built on my Bonus Project 1 relational al
 
 | Checkpoint | Module | State |
 |---|---|---|
-| 1 | Engine refactor + M1 storage engine | code and tests done; measurements and oral prep to do |
-| 2 | M2 execution engine | code and tests done (34 tests); measurements and oral prep to do |
-| 3 | M3 SQL front end | code and tests done (39 tests); oral prep to do |
-| 4 | M4 optimizer | code and tests done; measurements on the course dataset to do |
-| 5 | Integration | shell, Engine, workload runner done; waiting for the course dataset |
+| 1 | Engine refactor + M1 storage engine | done: code, tests, DESIGN_M1.md, REPORT_M1.md |
+| 2 | M2 execution engine | done: code, tests (34), DESIGN_M2.md, REPORT_M2.md |
+| 3 | M3 SQL front end | done: code, tests (39), GRAMMAR_SQL.md, DESIGN_M3.md |
+| 4 | M4 optimizer | done: code, tests, DESIGN_M4.md, REPORT_M4.md (own generated data and 20 queries) |
+| 5 | Integration | done: shell, Engine, `scripts/run_workload.py`, ARCHITECTURE.md |
 
 ## Layout
 
@@ -55,7 +55,7 @@ python opt.py analyze --catalog mydb
 python opt.py explain --catalog mydb --logical logical.json --frames 32 --trees
 python opt.py dp-table --catalog mydb --logical logical.json
 python shell.py --db mydb --frames 32          # SQL prompt: EXPLAIN, EXPLAIN ANALYZE, ANALYZE, SET frames = n, LOAD t FROM 'f.csv'
-python scripts/make_demo_db.py --out demo_db   # a demo database with 12 queries, to try everything
+python scripts/make_demo_db.py --out demo_db   # a demo database with 20 queries, to try everything
 python scripts/load_university.py --sql smallRelationsInsertFile.sql --out uni_db
 python scripts/run_workload.py --db DIR --queries queries.sql --frames 32 --analyze
 python scripts/m4_measure.py qerror|speedup|correlation --db DIR --queries q20.sql
