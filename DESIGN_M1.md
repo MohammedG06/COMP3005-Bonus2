@@ -1,7 +1,9 @@
 # DESIGN_M1.md: storage engine and buffer pool
 
+Assumption: the published traces were not provided, so I generated five seeded traces with `scripts/make_traces.py` (uniform random, 80/20 hot set, repeated 80-page scan, 300-page loop, hot set plus scans), and the worked trace in Module 1 section 5.3 is also a test.
+
 Everything here matches the code in `dbms/storage/`. The page dumps are real output of
-`python storage.py layout ...` (regenerate them on your own files before the oral check).
+`python storage.py layout ...`.
 
 ## 1. Files
 
@@ -160,7 +162,7 @@ kind  "R"    "R.db"           first=0    pages=1    tuples=3           ncols=3  
 
 - **Largest storable record.** The spec says 4088 bytes, but an insert needs L + 4 bytes
   (record plus slot) and an empty page has 4088 free, so the real limit is **4084**. The code rejects
-  anything above 4084 with an error naming the table and the row. Worth confirming with the professor.
+  anything above 4084 with an error naming the table and the row. This is my assumption, since the spec's 4088 leaves no room for the slot.
 - **`trace` uses a simulated disk.** The page ids in a trace can be anything, so pages read as zeros
   and the `--db` argument is accepted but not needed.
 - **`scan` counters** describe the scan alone: the pool is emptied after the catalog lookup and its
