@@ -1,5 +1,7 @@
 # DESIGN_M2.md: execution engine
 
+Assumption: the plan JSON schema and sample plans were not provided, so the validator and the test plans follow the operator JSON shown in Module 2 section 2, and every plan used in the reports was written by me.
+
 Matches the code in `dbms/execution/`. Run `python exec.py trace --db DIR --plan plan.json --frames B`
 to see the numbers described here on a real plan.
 
