@@ -47,10 +47,11 @@ memory from the same pool, so pinned + leased can never exceed B. See DESIGN_M2.
 
 ## Testing
 
-167 tests: the 25 Bonus 1 cases on the library, Module 1 spec examples, Module 2 differential tests against the
+172 tests: the 25 Bonus 1 cases on the library, Module 1 spec examples, Module 2 differential tests against the
 reference evaluator, the 7 spec translations and 15 cases of Module 3, Module 4 examples (including the DP table),
-and whole-pipeline tests at B = 3, 4, 8 and 32. Private fuzzing (not in the repository) compared my SQL front end with
-SQLite on 1,500 random queries and ran 2,000+ random queries through the whole pipeline at three frame budgets.
+and whole-pipeline tests at B = 3, 4, 8 and 32. `scripts/fuzz_pipeline.py` runs random queries through the whole
+pipeline with random subsets of rewrite rules off and compares every result with the reference evaluator. A private
+script (not in the repository) also compared my SQL front end with SQLite on 1,500 random queries.
 
 ## What I would do differently if I started again
 

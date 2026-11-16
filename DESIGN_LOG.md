@@ -137,3 +137,27 @@ The course dataset was not published, so REPORT_M4 uses data and 20 queries I ge
 * One query at B = 4 picked nested loop (145 I/O) when sort-merge cost 88. I did not prove the correlation caused it,
   and the report says so.
 * Query 9 has an estimate of 80 against an actual of 342. This is a cost model gap. It is documented and not fixed.
+
+## 2026-11-15: Module 3 probe with unusual queries
+
+**Goal:** before submitting, try odd and invalid SQL on the finished shell and compare against SQLite, to see
+whether Module 3 gives clear errors and sensible plans.
+
+**Where the AI was wrong:**
+
+1. *A number was called a reserved keyword.* `SELECT 1 FROM Emp` and `ORDER BY 1` said "expected a column name
+   but found '1' (that word is a reserved keyword)". The parser decided a token was a keyword when its type name was
+   upper case letters, and the scanner also names its number and string tokens `NUM` and `STR`, so they matched. The
+   query was rejected correctly, but the message was misleading. I found it by reading the output of about 50 odd
+   queries. Fix: the hint is now only added when the token really is in the scanner's keyword list. Two new tests in
+   `tests/test_m3.py` (a number is not called a keyword, a real keyword still is). The suite is now 172 tests.
+2. *`ORDER BY` after a `UNION` behaves differently from SQLite.* `SELECT name FROM Emp UNION ALL SELECT pname FROM
+   Proj ORDER BY name` fails with "unknown column 'name'", because I attached `ORDER BY` and `LIMIT` to the last
+   select block, following the handout's grammar literally. SQLite sorts the whole union. The handout grammar has no
+   rule for it, so I kept my behaviour and it is listed in GRAMMAR_SQL.md. A user has to write a subquery to sort a
+   union.
+
+**What the probe also showed (not bugs):** `BETWEEN`, `IN`, `LIKE`, `IS NULL`, arithmetic in the select list,
+`COUNT(DISTINCT ...)` and `e.*` are outside the handout's grammar and give a clear lexical or syntax error with a line
+and column. Table names are case sensitive and keywords are not, which matches my scanner's documented rule.
+

@@ -349,6 +349,16 @@ class SemanticsOnData(unittest.TestCase):
         self.assertEqual([r[1] for r in out], [60, 80, 90, 100])
 
 
+class ErrorWording(unittest.TestCase):
+    def test_number_is_not_called_a_keyword(self):
+        e = err("SELECT 1 FROM Emp")
+        self.assertEqual(e.category, "syntax")
+        self.assertNotIn("reserved keyword", e.message)
+
+    def test_real_keyword_is_still_called_one(self):
+        self.assertIn("reserved keyword", err("SELECT DISTINCT FROM Emp").message)
+
+
 class CommandLine(unittest.TestCase):
     def test_parse_compile_check(self):
         with tempfile.TemporaryDirectory() as d:

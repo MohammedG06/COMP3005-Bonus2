@@ -2,7 +2,7 @@
 
 Assumption: no sample catalog was provided, so the tests build their own tables (university style schemas plus the Emp, Dept and Proj demo tables), and the ten required cases are checked against those.
 
-Code: `dbms/sql/` (`lexer.py`, `parser.py`, `translate.py`, `cli.py`). Tests: `tests/test_m3.py` (39 tests).
+Code: `dbms/sql/` (`lexer.py`, `parser.py`, `translate.py`, `cli.py`). Tests: `tests/test_m3.py` (41 tests).
 
 ## 1. Pipeline
 

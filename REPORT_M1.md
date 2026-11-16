@@ -68,7 +68,7 @@ the first pass misses).
 **CLOCK gets the same 0 hits here.** On a loop bigger than the pool CLOCK also behaves like FIFO, so neither
 policy fixes flooding. The real fix is a scan resistant policy (for example LRU-K, one of the listed sources).
 
-**Which would I ship?** Argue from the table, not in general. On the hot-set trace (trace2) at B = 64 LRU gets
+**Which would I ship?** On the hot-set trace (trace2) at B = 64 LRU gets
 66.1% against 61.9% for CLOCK, and at B = 16 LRU is also ahead (19.8% against 19.4%). On the uniform trace CLOCK is
 marginally ahead at B = 16 and 64 (differences of 0.0 and 0.3 points), which is noise. LRU is as good or better on the traces
 with a hot set; CLOCK's advantage is cheaper bookkeeping (no list to reorder on every hit). I would ship LRU: it is as good or better on the hot-set traces, and the bookkeeping on every hit is its only cost.

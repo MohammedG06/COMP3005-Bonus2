@@ -100,7 +100,7 @@ Physical plan JSON for Module 2, every node annotated with `est_rows` and `est_c
 cost minus the children's). `rename[x](scan T)` becomes `seqscan` with an alias. `opt explain` prints the tree;
 `--trees` also prints the logical plan before and after rewriting and the rules that fired.
 
-## 7. Known weaknesses (worth stating at the oral)
+## 7. Known weaknesses
 
 * Independence: correlated columns are underestimated (REPORT_M4.md section 3).
 * The spec's worked example lists 550 for the plan `{B,C} then A`; with the formula and B = 32 the 40 page

@@ -8,7 +8,7 @@ Pure Python 3 (standard library only). Built on my Bonus Project 1 relational al
 |---|---|---|
 | 1 | Engine refactor + M1 storage engine | done: code, tests, DESIGN_M1.md, REPORT_M1.md |
 | 2 | M2 execution engine | done: code, tests (34), DESIGN_M2.md, REPORT_M2.md |
-| 3 | M3 SQL front end | done: code, tests (39), GRAMMAR_SQL.md, DESIGN_M3.md |
+| 3 | M3 SQL front end | done: code, tests (41), GRAMMAR_SQL.md, DESIGN_M3.md |
 | 4 | M4 optimizer | done: code, tests, DESIGN_M4.md, REPORT_M4.md (own generated data and 20 queries) |
 | 5 | Integration | done: shell, Engine, `scripts/run_workload.py`, ARCHITECTURE.md |
 

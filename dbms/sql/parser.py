@@ -10,7 +10,7 @@ AST (all dbms.ra.nodes.Node):
 """
 from ..errors import DBError
 from ..ra.nodes import Node
-from .lexer import lex, AGG_FUNCS
+from .lexer import lex, AGG_FUNCS, KEYWORDS
 
 CMPS = ("=", "<>", "<", "<=", ">", ">=")
 
@@ -50,7 +50,7 @@ class SQLParser:
     def ident(self, what="a name"):
         t = self.peek()
         if t.type != "IDENT":
-            hint = " (that word is a reserved keyword)" if t.type.isupper() and t.type.isalpha() and t.type != "EOF" else ""
+            hint = " (that word is a reserved keyword)" if t.type in KEYWORDS else ""
             self.fail(f"expected {what} but found {self.describe(t)}{hint}")
         return self.advance()
 
