@@ -1,3 +1,4 @@
+**Demo video:** https://www.youtube.com/watch?v=pJfA2ybBH-c
 # COMP 3005 Project 2: a database system, one module at a time
 
 Pure Python 3 (standard library only). Built on my Bonus Project 1 relational algebra engine.
